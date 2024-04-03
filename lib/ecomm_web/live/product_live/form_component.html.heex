@@ -1,0 +1,22 @@
+<div>
+  <.header>
+    <%= @title %>
+    <:subtitle>Use this form to manage product records in your database.</:subtitle>
+  </.header>
+
+  <.simple_form
+    for={@form}
+    id="product-form"
+    phx-target={@myself}
+    phx-change="validate"
+    phx-submit="save"
+  >
+    <.input field={@form[:name]} type="text" label="Name" />
+    <.input field={@form[:price]} type="number" label="Price" />
+    <.input field={@form[:images]} type="file" label="Images" />
+
+    <:actions>
+      <.button phx-disable-with="Saving...">Save Product</.button>
+    </:actions>
+  </.simple_form>
+</div>
